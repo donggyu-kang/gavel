@@ -1,0 +1,48 @@
+Table users {
+  id integer [primary key]
+  email varchar
+  password varchar
+  nickname varchar
+  created_at timestamp
+}
+
+Table balances {
+  id integer [primary key]
+  user_id integer [not null]
+  amount integer
+  version integer
+}
+
+Table items {
+  id integer [primary key]
+  user_id integer [not null]
+  name varchar
+  description text
+  image varchar
+  created_at timestamp
+}
+
+Table auctions {
+  id integer [primary key]
+  item_id integer [not null]
+  status varchar [note: 'READY, IN_PROGRESS, ENDED, FAILED']
+  start_time timestamp
+  end_time timestamp
+  current_price integer
+  winner_id integer
+}
+
+Table bids {
+  id integer [primary key]
+  auction_id integer [not null]
+  user_id integer [not null]
+  bid_price integer
+  created_at timestamp
+}
+
+Ref: balances.user_id > users.id
+Ref: items.user_id > users.id
+Ref: auctions.item_id > items.id
+Ref: auctions.winner_id > users.id
+Ref: bids.auction_id > auctions.id
+Ref: bids.user_id > users.id
