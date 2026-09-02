@@ -123,7 +123,12 @@ Gavel = 실시간 경매 플랫폼. Spring Boot 백엔드. **포트폴리오 프
 - ERD 설계 완료 (User, Balance, Item, Auction, Bid — 5개 엔티티)
 - Git 정리 완료 (`.gitignore` 수정, 잘못 트래킹된 디렉토리 제거, 커밋 메시지 한국어 통일)
 - `docs/progress.md` 커밋 완료
-- **다음 작업**: `feature/entity-setup` 브랜치에서 `User`/`Balance` 엔티티 코드 작성
+- **다음 작업 (합의)**: 엔티티 코드 전에 설계 문서부터 보강.
+  1. `docs/adr/` — ADR 템플릿 + 0001 User/Balance 분리 / 0002 JWT+Refresh Token 저장 전략 / 0003 도메인형 패키지 구조
+  2. `docs/api/` — 1단계 인증 API 명세 초안 (회원가입/로그인/재발급)
+  3. `docs/diagrams/` — 인증 흐름 시퀀스 다이어그램 (mermaid)
+  이후 `feature/entity-setup` 브랜치에서 `User`/`Balance` 엔티티 코드 작성.
+- ADR/명세 작성 시 내용 판단은 동규님이. Claude는 템플릿·뼈대만.
 
 미해결 질문 (Notion TODO): JWT 인증을 plain Filter로 구현 vs Spring Security 필터 체인 아키텍처 활용 — 차이 정리 필요.
 
