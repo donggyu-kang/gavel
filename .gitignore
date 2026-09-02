@@ -59,3 +59,7 @@ bin/
 .env
 *.env.local
 application-secret.yml
+
+### Claude Code ###
+CLAUDE.local.md
+.claude/
